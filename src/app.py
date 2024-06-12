@@ -1,14 +1,13 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import os
 from predict import predict
-import cv2
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = '../uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-@app.route('/')
+@app.route('/uploads')
 def upload_form():
     return render_template('index.html')
 
@@ -21,23 +20,19 @@ def upload_file():
         return 'Nenhum arquivo selecionado!'
     if file:
         filename = file.filename
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file_path = os.path.join(UPLOAD_FOLDER, filename)
         file.save(file_path)
         
         # Passa o caminho do arquivo para a função predict
         resultado_predicao = predict(file_path)
         
-        return f'Arquivo enviado com sucesso! Resultado da predição: {resultado_predicao}'
+        # Redireciona para a página de resultado com o número predito
+        return redirect(url_for('resultado', predicao=resultado_predicao))
 
-@app.route('/predict/<img>', methods=['GET'])
-def realizar_predicao(img):
-    # Caminho para a imagem
-    caminho_imagem = os.path.join(app.config['UPLOAD_FOLDER'], img)
-    
-    # Carrega a imagem e realiza a predição usando a função predict
-    resultado_predicao = predict(caminho_imagem)
-    
-    return f'Resultado da predição: {resultado_predicao}'
+@app.route('/resultado')
+def resultado():
+    predicao = request.args.get('predicao')
+    return render_template('resultado.html', predicao=predicao)
 
 if __name__ == '__main__':
     app.run(debug=True)

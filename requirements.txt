@@ -18,11 +18,13 @@ ament-uncrustify==0.12.11
 ament-xmllint==0.12.11
 angles==1.15.0
 astunparse==1.6.3
+blinker==1.8.2
 bond==3.0.2
 builtin-interfaces==1.2.1
 cartographer-ros-msgs==2.0.9002
 certifi==2024.6.2
 charset-normalizer==3.3.2
+click==8.1.7
 composition-interfaces==1.2.1
 contourpy==1.2.1
 control-msgs==4.5.0
@@ -44,6 +46,7 @@ examples-rclpy-minimal-client==0.15.1
 examples-rclpy-minimal-publisher==0.15.1
 examples-rclpy-minimal-service==0.15.1
 examples-rclpy-minimal-subscriber==0.15.1
+Flask==3.0.3
 flatbuffers==24.3.25
 fonttools==4.53.0
 gast==0.5.4
@@ -56,6 +59,8 @@ h5py==3.11.0
 idna==3.7
 image-geometry==3.2.1
 interactive-markers==2.3.2
+itsdangerous==2.2.0
+Jinja2==3.1.4
 joint-state-publisher==2.4.0
 joint-state-publisher-gui==2.4.0
 keras==3.3.3
@@ -98,6 +103,7 @@ Pygments==2.18.0
 pyparsing==3.1.2
 python-dateutil==2.9.0.post0
 python-qt-binding==1.1.2
+PyYAML==6.0.1
 qt-dotgraph==2.2.3
 qt-gui==2.2.3
 qt-gui-cpp==2.2.3
@@ -196,6 +202,7 @@ turtlebot3-example==2.1.5
 turtlebot3-msgs==2.2.3
 turtlebot3-teleop==2.1.5
 turtlesim==1.4.2
+typeguard==4.3.0
 typing_extensions==4.12.2
 unique-identifier-msgs==2.2.1
 urllib3==2.2.1

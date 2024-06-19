@@ -7,7 +7,7 @@ app = Flask(__name__)
 UPLOAD_FOLDER = '../uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-@app.route('/uploads')
+@app.route('/')
 def upload_form():
     return render_template('index.html')
 
